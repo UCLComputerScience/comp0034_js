@@ -42,14 +42,6 @@ def search():
         return redirect(url_for('main.index'))
 
 
-@bp_main.route('/api_courses', methods=['GET'])
-def api_courses():
-    response = requests.get('http://localhost:5000/api/courses', auth=('sarah_api', 'sanders'))
-    # response.json returns a dict, in this case it is a nested dictionary
-    courses = response.json()
-    return render_template('courses_api_client.html', courses=courses)
-
-
 @bp_main.route('/news')
 def news():
     # Make an API call, and store the response.
