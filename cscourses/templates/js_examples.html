@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block javascript %}
+    <script src="{{ url_for('static', filename='js/lecture_notes.js') }}" defer></script>
+{% endblock %}
+{% block title %}JavaScript examples{% endblock %}
+{% block content %}
+    <h3>Javascript examples</h3>
+    <a src="{{ url_for('main.dom') }}">DOM examples</a>
+    <a src="{{ url_for('main.event') }}">Event examples</a>
+{% endblock %}

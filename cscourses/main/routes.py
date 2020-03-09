@@ -42,8 +42,8 @@ def search():
         return redirect(url_for('main.index'))
 
 
-@bp_main.route('/news')
-def news():
+@bp_main.route('/news_v1')
+def news_v1():
     # Make an API call, and store the response.
     response = requests.get('https://hacker-news.firebaseio.com/v0/topstories.json')
     # Process information about the first 10 news item in the top stories list.
@@ -57,3 +57,22 @@ def news():
         story = {'title': story_data['title'], 'url': story_data['url'], }
         stories.append(story)
     return render_template('news.html', stories=stories)
+
+
+@bp_main.route('/news')
+def news():
+    return render_template('news.html')
+
+@bp_main.route('/js')
+def js():
+    return render_template('js_examples.html')
+
+
+@bp_main.route('/js/dom')
+def dom():
+    return render_template('dom.html')
+
+
+@bp_main.route('/js/events')
+def events():
+    return render_template('events.html')

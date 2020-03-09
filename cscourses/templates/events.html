@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}DOM example{% endblock %}
+{% block javascript %}
+    <script src="{{ url_for('static', filename='js/events.js') }}" defer></script>
+{% endblock %}
+{% block content %}
+    <hr>
+    <p>Event handler</p>
+    <button id="b1" onclick="changeText(this);">Click me!</button>
+    <hr>
+    <p>Event listener</p>
+    <button id="b2">Click me!</button>
+    <hr>
+    <p>Form</p>
+    <form id="loginForm" onsubmit="processForm();return false">
+        <input id="email" type="email" placeholder="Enter email address" required>
+        <label for="pwd">Password: </label>
+        <input id="pwd" type="password" placeholder="Enter password">
+        <input type="submit">
+    </form>
+{% endblock %}

@@ -5,6 +5,10 @@
     <title>{% block title %}{{ title }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <script type=text/javascript defer>
+        var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    {% block javascript %}{% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-expand bg-primary navbar-dark">
@@ -22,10 +26,14 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ url_for('main.news') }}">News</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main.js') }}">JavaScript examples</a>
+        </li>
         {% if current_user.is_anonymous %}
         <li class="nav-item">
             <a class="nav-link" href="{{ url_for('auth.login') }}">Log in</a>
-        </li>
+        </li>
+        
         {% else %}
         <li class="nav-item">
             <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
@@ -37,13 +45,13 @@
 <div role=main class="container">
     {# Displays flashed messages on a page #}
     {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class="alert-warning list-unstyled">
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+    {% if messages %}
+    <ul class="alert-warning list-unstyled">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     {% endwith %}
 
     {% block content %}
