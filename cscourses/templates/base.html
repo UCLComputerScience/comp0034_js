@@ -30,14 +30,13 @@
             <a class="nav-link" href="{{ url_for('main.js') }}">JavaScript examples</a>
         </li>
         {% if current_user.is_anonymous %}
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('auth.login') }}">Log in</a>
-        </li>
-        
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.login') }}">Log in</a>
+            </li>
         {% else %}
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
-        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+            </li>
         {% endif %}
     </ul>
 </nav>
@@ -45,17 +44,16 @@
 <div role=main class="container">
     {# Displays flashed messages on a page #}
     {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class="alert-warning list-unstyled">
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+        {% if messages %}
+            <ul class="alert-warning list-unstyled">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     {% endwith %}
-
     {% block content %}
-    {# Child pages add page specific content here #}
+        {# Child pages add page specific content here #}
     {% endblock %}
 </div>
 </body>

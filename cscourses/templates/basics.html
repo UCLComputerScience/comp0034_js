@@ -1,3 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}DOM example{% endblock %}
+{% block javascript %}
+    <script src="{{ url_for('static', filename='js/basics.js') }}" defer></script>
+{% endblock %}
+{% block content %}
+    <h2>JavaScript basics</h2>
+    <h4>Instructions</h4>
+    <p>Open the Javascript console for the developer tools of your browser.</p>
+    <p>You should see the console.log output of various functions.</p>
+    <p>The JavaScript functions can be viewed in <a href="{{ url_for('static', filename='js/basics.js') }}">basics.js</a></p>
+    <p>Alternatively copy ad paste sections of code below and enter them in the JavaScript console to see the results.</p>
+    <pre><code>
+
 /* Variables and data types */
 console.log("Variables and data types")
 var foo;
@@ -196,3 +210,6 @@ var person1 = new Person("Jo", "Bloggs", 2.1, "12/30/1969");
 console.log(person1.firstname); //dot notation
 console.log(person1["height"]);  //bracket notation
 console.log(person1.calculateAge());
+
+    </code></pre>
+{% endblock %}

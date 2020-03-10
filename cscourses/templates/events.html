@@ -4,18 +4,21 @@
     <script src="{{ url_for('static', filename='js/events.js') }}" defer></script>
 {% endblock %}
 {% block content %}
-    <hr>
-    <p>Event handler</p>
-    <button id="b1" onclick="changeText(this);">Click me!</button>
-    <hr>
-    <p>Event listener</p>
-    <button id="b2">Click me!</button>
-    <hr>
-    <p>Form</p>
+    <br>
+    <h2>Instructions</h2>
+    <p>Click on each of the buttons below, and then complete and submit the form.
+    <p>Each event wil trigger a JavaScript function.</p>
+    <p>The JavaScript functions can be viewed in <a href="{{ url_for('static', filename='js/events.js') }}">events.js</a></p>
+    <br>
+    <p>Event handler: <button id="b1" onclick="changeText(this);">Click me!</button></p>
+    <br>
+    <p>Event listener: <button id="b2">Click me!</button></p>
+    <br>
+    <p>Form:</p>
     <form id="loginForm" onsubmit="processForm();return false">
         <input id="email" type="email" placeholder="Enter email address" required>
-        <label for="pwd">Password: </label>
         <input id="pwd" type="password" placeholder="Enter password">
         <input type="submit">
     </form>
+
 {% endblock %}

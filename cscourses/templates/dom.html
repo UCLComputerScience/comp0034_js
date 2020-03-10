@@ -1,15 +1,58 @@
 {% extends 'base.html' %}
 {% block title %}DOM example{% endblock %}
 {% block content %}
-    <h1>First heading</h1>
-    <p>Para1</p>
-    <p>Para2</p>
-    <div class="lead">
-        <h2>Sub heading 1</h2>
-        <p>Para3</p>
-        <p>Para4</p>
+    <div id="mainContent">
+        <h1>First heading</h1>
+        <p>Para1</p>
+        <p>Para2</p>
+        <div class="lead">
+            <h2>Sub heading 1</h2>
+            <p>Para3</p>
+            <p>Para4</p>
+        </div>
+        <a href="https://www.google.com" id="aLink">Link1</a><br>
+        <h1>Second heading</h1>
+        <p>Para5</p>
     </div>
-    <a href="https://www.google.com" id="aLink">Link1</a><br>
-    <h1>Second heading</h1>
-    <p>Para5</p>
+    <hr>
+    <h2>Instructions</h2>
+    <p>Open a JavaScript console in the developer tools for your browser.</p>
+    <p>Copy and paste sections of the JavaScript following JavaScript code and paste into the console. Enter to see the
+        results.</p>
+    <p>The code uses the HTML elements from the top section of this page.</p>
+    <pre><code>
+/* SELECTING ELEMENTS */
+
+// 1. Get all elements matching specified selectors
+var content = document.querySelectorAll(".lead p");
+content[0];
+content[1];
+
+// 2. Get a single element using its id
+var myTitleLink = document.querySelector("#aLink");
+myTitleLink.innerHTML;
+console.log("This is a node of type: ", myTitleLink.nodeType);
+console.log("Inner HTML: ", myTitleLink.innerHTML);
+
+// 3. Get elements using the HTML tag name
+var myParas = document.getElementsByTagName("p");
+console.log("Paragraphs: ", myParas.length);
+
+
+/* CHANGING AND ADDING ELEMENTS: Scroll back to the top of the page after executing each section of code to see the changes */
+
+// 1. Change alignment of the main section
+var mainContent = document.querySelector("#mainContent");
+mainContent.setAttribute("align","center");
+
+// 2. Change content of the first h1 element in the mainContent section
+var arrayOfH1s = mainContent.querySelectorAll("h1");
+arrayOfH1s[0].innerHTML = "This is a new title";
+
+//3. Add a new heading to the end of the 'mainContent' div
+var newHeading = document.createElement("h1");
+newHeading.innerHTML = "I am a new heading!";
+mainContent.appendChild(newHeading);
+
+    </code></pre>
 {% endblock %}

@@ -76,3 +76,8 @@ def dom():
 @bp_main.route('/js/events')
 def events():
     return render_template('events.html')
+
+
+@bp_main.route('/js/basics')
+def basics():
+    return render_template('basics.html')
