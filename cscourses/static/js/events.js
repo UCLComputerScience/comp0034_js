@@ -1,7 +1,13 @@
+/*
+* Event handler that changes the button text when the button is clicked
+* */
 function changeText(id) {
     id.innerHTML = "I've been clicked!";
 }
 
+/*
+* Event listener that alerts a message when the button is clicked
+* */
 document.querySelector("#b2").addEventListener("click", function () {
     alert("You clicked the second button!");
 });

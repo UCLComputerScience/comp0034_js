@@ -1,23 +1,19 @@
 //SELECTING ELEMENTS
 
 
-// Get all elements matching specified selectors
+// Get all elements matching specified class
 var content = document.querySelectorAll(".lead p");
-content[0];
-content[1];
+console.log(content[0]);
+console.log(content[1]);
 
 
 // Get a single element using its id
-var myTitleLink = document.getElementById("aLink");
-//OR
 var myTitleLink = document.querySelector("#aLink");
-myTitleLink.innerHTML;
-
 console.log("This is a node of type: ", myTitleLink.nodeType);
 console.log("Inner HTML: ", myTitleLink.innerHTML);
 
 // Get elements using the HTML tag name
-var myParas = document.getElementsByTagName("p");
+var myParas = document.querySelectorAll("p");
 console.log("Paragraphs: ", myParas.length);
 
 
