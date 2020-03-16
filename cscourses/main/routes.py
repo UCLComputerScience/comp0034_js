@@ -63,6 +63,7 @@ def news_v1():
 def news():
     return render_template('news.html')
 
+
 @bp_main.route('/js')
 def js():
     return render_template('js_examples.html')
@@ -81,3 +82,8 @@ def events():
 @bp_main.route('/js/basics')
 def basics():
     return render_template('basics.html')
+
+
+@bp_main.route('/js/functions')
+def functions():
+    return render_template('functions.html')

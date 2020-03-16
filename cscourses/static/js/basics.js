@@ -196,3 +196,53 @@ var person1 = new Person("Jo", "Bloggs", 2.1, "12/30/1969");
 console.log(person1.firstname); //dot notation
 console.log(person1["height"]);  //bracket notation
 console.log(person1.calculateAge());
+
+
+/* Variable scope */
+//Global variable
+var count = 0;  //Global
+function incr(n) {
+    count += n;
+}
+
+function reset() {
+    count = 0;
+}
+
+incr(4);
+reset();
+incr(2);
+console.log(count);
+
+//Function scope
+function everything() {
+    var count = 0;
+
+    function incr(n) {
+        count += n;
+    }
+
+    function reset() {
+        count = 0;
+    }
+
+    incr(4);
+    reset();
+    incr(2);
+    console.log(count);
+}
+
+everything();
+
+//Block scope
+/*
+Variables declared with the let keyword can have Block Scope, variables declared inside a block {} using let cannot be
+accessed from outside the block, variables inside a block {} using var can be accessed from outside the block.
+ */
+if (true) {
+    var x = 2;
+    let y = 2;
+}
+console.log(x);
+console.log(y);  //should give an error that y is undefined
+

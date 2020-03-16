@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Functions examples{% endblock %}
+{% block javascript %}
+    <script src="{{ url_for('static', filename='js/functions.js') }}" defer></script>
+{% endblock %}
+{% block content %}
+    <br>
+    <h2>Instructions</h2>
+    <p>The JavaScript functions can be viewed in <a href="{{ url_for('static', filename='js/functions.js') }}">functions.js</a>
+    </p>
+    <h4>Named function</h4>
+    <pre><code>
+function findBiggest(firstFraction, secondFraction) {
+let result;
+if (firstFraction > secondFraction) {
+    result = "The first fraction is bigger: " + firstFraction + " than the second fraction: " + secondFraction;
+} else {
+    result = "The second fraction is bigger: " + secondFraction + " than the first fraction: " + firstFraction;
+}
+return result;
+}</code></pre>
+    <h4>Anonymous function</h4>
+    <pre><code>
+let biggest = function (firstFraction, secondFraction) {
+    let result;
+    if (firstFraction > secondFraction) {
+        result = "The first fraction is bigger: " + firstFraction + " than the second fraction: " + secondFraction;
+    } else {
+        result = "The second fraction is bigger: " + secondFraction + " than the first fraction: " + firstFraction;
+    }
+    return result;
+};</code></pre>
+    <h4>Self-invoking function</h4>
+    <pre><code>
+let selfInvokingFunction = (function (firstFraction, secondFraction) {
+    let result;
+    if (firstFraction > secondFraction) {
+        result = "The first fraction is bigger: " + firstFraction + " than the second fraction: " + secondFraction;
+    } else {
+        result = "The second fraction is bigger: " + secondFraction + " than the first fraction: " + firstFraction;
+    }
+    return result;
+})(2 / 3, 7 / 12);</code></pre>
+    <br>
+    <h3>Execute the types of function</h3>
+    <p>1. Named function. Enter in the JavaScript console: <code>console.log(findBiggest(2 / 3, 7 / 12));</code></p>
+    <p>2. Anonymous function. Enter in the JavaScript console: <code>console.log(biggest(2 / 3, 7 / 12));</code></p>
+    <p>3. An immediately executed function is executed as soon as the JavaScript is seen, so this function has already
+        been executed. You can see the value that was generated. Enter the following code in the JavaScript console:
+        <code>console.log(selfInvokingFunction);</code></p>
+{% endblock %}
