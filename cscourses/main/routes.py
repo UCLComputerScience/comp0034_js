@@ -56,7 +56,7 @@ def news_v1():
         story_data = response.json()
         story = {'title': story_data['title'], 'url': story_data['url'], }
         stories.append(story)
-    return render_template('news.html', stories=stories)
+    return render_template('news_prev.html', stories=stories)
 
 
 @bp_main.route('/news')
